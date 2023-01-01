@@ -7,6 +7,9 @@ on:
       - main
       - revive-playground # FIXME: remove once completed testing
 
+env:
+  EMSCRIPTEN_VERSION: 2.0.11
+
 jobs:
   generate:
     name: Generate Parser
