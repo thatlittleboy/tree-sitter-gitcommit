@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - revive-playground
+      - revive-playground # FIXME: remove once completed testing
 
 jobs:
   generate:
@@ -14,20 +14,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install cargo
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-
-      - name: Install tree-sitter-cli
-        run: cargo install tree-sitter-cli
+        uses: actions/checkout@v3
 
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: 14
 
       - name: Cache npm dependencies
         uses: actions/cache@v2
@@ -52,7 +44,7 @@ jobs:
           file_pattern: src
 
       - name: Checkout gh-pages branch to ./gh-pages
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
           path: ./gh-pages
