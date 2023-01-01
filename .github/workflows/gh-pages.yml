@@ -8,7 +8,7 @@ on:
       - revive-playground # FIXME: remove once completed testing
 
 env:
-  EMSCRIPTEN_VERSION: 2.0.24 # bug: tree-sitter#1131
+  EMSCRIPTEN_VERSION: 2.0.17 # bug: tree-sitter#1131
 
 jobs:
   generate:
