@@ -38,7 +38,7 @@ jobs:
       - name: prerun (remove me)
         run: |
           emcc --help
-          ls -la node_modules/tree-sitter-cli/
+          ls -la node_modules/
 
       - name: Generate parser WASM files
         run: |
