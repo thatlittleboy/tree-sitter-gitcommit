@@ -42,8 +42,8 @@ jobs:
           emcc --help
           npx tree-sitter generate
           echo "finished generating"
-          # npx tree-sitter build-wasm
-          node_modules/.bin/tree-sitter build-wasm
+          npx tree-sitter build-wasm --debug
+          echo "finished building wasm"
 
       - name: Commit generated parser files
         uses: stefanzweifel/git-auto-commit-action@v4
