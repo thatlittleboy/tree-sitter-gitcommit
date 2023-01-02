@@ -40,7 +40,7 @@ jobs:
           emcc --help
           npx tree-sitter generate
           echo "finished generating"
-          ls -l node_modules/
+          ls -l node_modules/tree-sitter-cli/
           npx tree-sitter build-wasm
           echo "finished building wasm"
 
