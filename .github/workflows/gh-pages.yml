@@ -7,9 +7,6 @@ on:
       - main
       - revive-playground # FIXME: remove once completed testing
 
-env:
-  EMSCRIPTEN_VERSION: 2.0.17 # bug: tree-sitter#1131
-
 jobs:
   generate:
     name: Generate Parser
@@ -38,12 +35,15 @@ jobs:
       - name: Install emscripten
         uses: mymindstorm/setup-emsdk@v11
         with:
-          version: ${{ env.EMSCRIPTEN_VERSION }}
+          version: 2.0.16
 
-      - name: Generate parser files
+      - name: Generate parser WASM files
         run: |
+          emcc --help
           npx tree-sitter generate
-          npx tree-sitter build-wasm
+          echo "finished generating"
+          # npx tree-sitter build-wasm
+          node_modules/.bin/tree-sitter build-wasm
 
       - name: Commit generated parser files
         uses: stefanzweifel/git-auto-commit-action@v4
