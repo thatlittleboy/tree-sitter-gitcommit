@@ -40,7 +40,8 @@ jobs:
           emcc --help
           npx tree-sitter generate
           echo "finished generating"
-          npx tree-sitter build-wasm --debug
+          ls -l node_modules/
+          npx tree-sitter build-wasm
           echo "finished building wasm"
 
       - name: Commit generated parser files
